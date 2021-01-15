@@ -1,0 +1,58 @@
+<robot name="robot">
+  
+  <!-- * * * base * * * -->
+  <link name="base">
+  	<visual>
+      <origin xyz="0 0 0.0425" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.32 0.26 0.085"/>
+      </geometry>
+      <material name="gris">
+        <color rgba="0.2 0.2 0.2 1.0"/>
+	  </material>
+	</visual>
+  </link>
+
+  <!-- * * * bras1 * * * -->
+  <link name="bras1">
+  	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.7"/>
+      </geometry>
+      <material name="bleu_ciel">
+        <color rgba="0 0.9 0.9 1.0"/>
+	  </material>
+	</visual>
+  </link>
+
+  <!-- * * * bras2 * * * -->
+  <link name="bras2">
+  	<visual>
+      <origin xyz="0 0 0.35" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.7"/>
+      </geometry>
+      <material name="blanc">
+        <color rgba="1 1 1 1.0"/>
+	  </material>
+	</visual>
+  </link>
+
+  <!-- * * * rotoid 1 * * * -->
+  <joint name="rot1" type="continuous">
+    <parent link="base"/>
+    <child link="bras1"/>
+    <origin xyz="0 0 0.435" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- * * * rotoid 2 * * * -->
+  <joint name="rot2" type="continuous">
+    <parent link="bras1"/>
+    <child link="bras2"/>
+    <origin xyz="0 0 0.35" rpy="0 1.57 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+</robot>
